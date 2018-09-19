@@ -5,25 +5,21 @@ const axios = require('axios');
 const app = express()
 const port = 3000
 
-const myAxiosInstance = axios.create();
-myAxiosInstance.defaults = {
-  raxConfig: {
-    instance: myAxiosInstance,
-    onRetryAttempt: (err) => {
-      const cfg = rax.getConfig(err);
-      console.log(`Retry attempt #${cfg.currentRetryAttempt}`);
-    },
-  }
-}
-const interceptorId = rax.attach(myAxiosInstance);
-
 app.get('/', async (req, res) => {
   try {
-    const response = await myAxiosInstance.get('https://mockbin.org/status/500');
+    const interceptorId = rax.attach();
+    const response = await axios({
+      url: 'https://mockbin.org/status/500',
+      raxConfig: {
+        noResponseRetries: 4,
+        retry: 4,
+      }
+    });
   } catch(e) {
-    console.log('Exception thrown', e);
+    console.log('Exception thrown', e.config.raxConfig);
   }
 
+  rax.detach(interceptorId);
   res.send('Hello World!')
 });
 

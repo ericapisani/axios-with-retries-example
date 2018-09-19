@@ -1,7 +1,7 @@
 {
   "name": "axios-proto",
   "version": "1.0.0",
-  "description": "",
+  "description": "Small example using the retry-axios package",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -9,7 +9,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Erica Pisani",
-  "license": "ISC",
   "dependencies": {
     "axios": "0.18.0",
     "express": "4.16.3",

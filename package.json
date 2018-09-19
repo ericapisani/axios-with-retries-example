@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Erica Pisani",
@@ -12,6 +13,7 @@
   "dependencies": {
     "axios": "0.18.0",
     "express": "4.16.3",
+    "nodemon": "1.18.4",
     "retry-axios": "0.3.2"
   }
 }

@@ -8,15 +8,20 @@ const port = 3000
 const myAxiosInstance = axios.create();
 myAxiosInstance.defaults = {
   raxConfig: {
-    instance: myAxiosInstance
+    instance: myAxiosInstance,
+    onRetryAttempt: (err) => {
+      const cfg = rax.getConfig(err);
+      console.log(`Retry attempt #${cfg.currentRetryAttempt}`);
+    },
   }
 }
 const interceptorId = rax.attach(myAxiosInstance);
 
 app.get('/', async (req, res) => {
   try {
-    const response = await myAxiosInstance.get('https://mockbin.org/status/200');
+    const response = await myAxiosInstance.get('https://mockbin.org/status/500');
   } catch(e) {
+    console.log('Exception thrown', e);
   }
 
   res.send('Hello World!')

@@ -1,7 +1,7 @@
 {
-  "name": "axios-proto",
+  "name": "axios-with-retries-example",
   "version": "1.0.0",
-  "description": "Small example using the retry-axios package",
+  "description": "Simple app to learn how to use the retry-axios package with axios",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

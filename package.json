@@ -10,7 +10,7 @@
   },
   "author": "Erica Pisani",
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "0.18.1",
     "express": "4.16.3",
     "nodemon": "1.18.4",
     "retry-axios": "0.3.2"
